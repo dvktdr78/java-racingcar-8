@@ -3,22 +3,23 @@ package racingcar.domain.game;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.car.Cars;
+import racingcar.domain.round.RaceRound;
 import racingcar.domain.strategy.MoveStrategy;
 
 public final class RacingGame {
     private final Cars cars;
     private final MoveStrategy moveStrategy;
-    private final int attemptCount;
+    private final RaceRound raceRound;
 
-    public RacingGame(Cars cars, MoveStrategy moveStrategy, int attemptCount) {
+    public RacingGame(Cars cars, MoveStrategy moveStrategy, RaceRound raceRound) {
         this.cars = cars;
         this.moveStrategy = moveStrategy;
-        this.attemptCount = attemptCount;
+        this.raceRound = raceRound;
     }
 
     public List<List<CarSnapshot>> play() {
         List<List<CarSnapshot>> snapshots = new ArrayList<>();
-        for (int i = 0; i < attemptCount; i++) {
+        for (int i = 0; i < raceRound.value(); i++) {
             cars.moveAll(moveStrategy);
             snapshots.add(carsSnapshot());
         }

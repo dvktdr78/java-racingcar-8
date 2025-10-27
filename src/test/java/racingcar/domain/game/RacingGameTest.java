@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.CarName;
 import racingcar.domain.car.Cars;
+import racingcar.domain.round.RaceRound;
 import racingcar.domain.strategy.MoveStrategy;
 
 class RacingGameTest {
@@ -16,7 +17,7 @@ class RacingGameTest {
     void playCollectsRoundResults() {
         Cars cars = Cars.fromNames(List.of(new CarName("pobi"), new CarName("woni")));
         MoveStrategy alwaysMove = () -> true;
-        RacingGame racingGame = new RacingGame(cars, alwaysMove, 3);
+        RacingGame racingGame = new RacingGame(cars, alwaysMove, RaceRound.of(3));
 
         List<List<RacingGame.CarSnapshot>> results = racingGame.play();
 
@@ -37,7 +38,7 @@ class RacingGameTest {
                 return counter++ % 2 == 0;
             }
         };
-        RacingGame racingGame = new RacingGame(cars, strategy, 2);
+        RacingGame racingGame = new RacingGame(cars, strategy, RaceRound.of(2));
 
         racingGame.play();
 
