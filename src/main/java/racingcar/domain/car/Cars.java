@@ -30,14 +30,6 @@ public final class Cars {
                 .orElse(0);
     }
 
-    public List<String> winnerNames() {
-        int maxPosition = maxPosition();
-        return cars.stream()
-                .filter(car -> car.position() == maxPosition)
-                .map(Car::name)
-                .collect(Collectors.toList());
-    }
-
     public List<Car> cars() {
         return Collections.unmodifiableList(cars);
     }

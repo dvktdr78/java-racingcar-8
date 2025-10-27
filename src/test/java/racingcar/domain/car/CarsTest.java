@@ -5,12 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import racingcar.domain.strategy.MoveStrategy;
-import racingcar.view.UiText;
 
 class CarsTest {
 
@@ -29,8 +27,8 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("최대 위치를 계산하고 공동 우승자를 반환한다")
-    void winnerNames() {
+    @DisplayName("최대 위치를 계산한다")
+    void maxPosition() {
         Cars cars = Cars.fromNames(List.of(
                 new CarName("pobi"),
                 new CarName("woni"),
@@ -38,7 +36,6 @@ class CarsTest {
         );
 
         MoveStrategy alwaysMove = () -> true;
-        MoveStrategy neverMove = () -> false;
 
         cars.moveAll(alwaysMove);   // 모두 1칸
         cars.moveAll(new MoveStrategy() { // 첫 번째만 이동
@@ -56,11 +53,6 @@ class CarsTest {
             }
         });
 
-        assertThat(cars.maxPosition()).isEqualTo(2);
-        List<String> winners = cars.winnerNames();
-        assertThat(winners).containsExactly("pobi", "woni");
-
-        cars.moveAll(neverMove);
         assertThat(cars.maxPosition()).isEqualTo(2);
     }
 

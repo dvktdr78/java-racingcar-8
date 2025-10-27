@@ -26,7 +26,7 @@ public final class RacingGame {
     }
 
     public List<String> winnerNames() {
-        return cars.winnerNames();
+        return Winners.from(cars).names();
     }
 
     private List<CarSnapshot> carsSnapshot() {
