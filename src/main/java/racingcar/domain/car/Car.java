@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import racingcar.domain.strategy.MoveStrategy;
+
 public final class Car {
     private final CarName name;
     private int position;
@@ -9,11 +11,17 @@ public final class Car {
         this.position = 0;
     }
 
-    public CarName getName() {
-        return name;
+    public String name() {
+        return name.value();
     }
 
-    public int getPosition() {
+    public int position() {
         return position;
+    }
+
+    public void move(MoveStrategy strategy) {
+        if (strategy.canMove()) {
+            position++;
+        }
     }
 }
