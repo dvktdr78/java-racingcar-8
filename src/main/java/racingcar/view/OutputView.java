@@ -10,6 +10,14 @@ public final class OutputView {
         System.out.println(UiText.Output.EXECUTION_RESULT_HEADER);
     }
 
+    public void printCarNamesPrompt() {
+        System.out.println(UiText.Prompt.CAR_NAMES);
+    }
+
+    public void printRaceRoundPrompt() {
+        System.out.println(UiText.Prompt.ATTEMPT_COUNT);
+    }
+
     public void printRound(List<RacingGame.CarSnapshot> snapshots) {
         snapshots.forEach(snapshot -> System.out.println(snapshot.name() + " : "
                 + UiText.Output.POSITION_MARK.repeat(snapshot.position())));

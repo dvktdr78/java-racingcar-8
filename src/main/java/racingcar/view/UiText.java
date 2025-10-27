@@ -17,6 +17,7 @@ public final class UiText {
 
         public static final String EXECUTION_RESULT_HEADER = "실행 결과";
         public static final String WINNER_PREFIX = "최종 우승자 : ";
+        public static final String POSITION_MARK = "-";
     }
 
     public static final class Error {
