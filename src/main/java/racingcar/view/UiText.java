@@ -30,5 +30,6 @@ public final class UiText {
         public static final String NAME_EMPTY = "자동차 이름은 비어 있을 수 없습니다.";
         public static final String NAME_UNVALID_LENGTH = "자동차 이름은 1자 이상 5자 이하여야 합니다.";
         public static final String NAME_DUPLICATED = "자동차 이름은 중복될 수 없습니다.";
+        public static final String CAR_COUNT_TOO_SMALL = "경주에는 최소 2대 이상의 자동차가 필요합니다.";
     }
 }
